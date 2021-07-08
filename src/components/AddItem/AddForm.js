@@ -1,10 +1,15 @@
 import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import DosageList from './DosageList';
+
+import { prescriptionActions } from '../../store/prescription';
 
 import './add-form.css';
 
 const AddItem = () => {
+  const dispatch = useDispatch();
+
   const nameRef = useRef('');
   const descRef = useRef('');
   const durationRef = useRef('');
@@ -48,7 +53,8 @@ const AddItem = () => {
     };
 
     console.log('submitted form');
-    console.log(medItem);
+    // console.log(medItem);
+    dispatch(prescriptionActions.addMedicine(medItem));
   };
 
   return (
