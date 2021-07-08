@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-import Dosage from './Dosage';
+import DosageList from './DosageList';
 
 import './add-form.css';
 
@@ -10,18 +10,6 @@ const AddItem = () => {
   const durationRef = useRef('');
   const totalRef = useRef('');
   const typeRef = useRef('');
-  const [dosage, setDosage] = useState([]);
-
-  console.log('dosage: ', dosage);
-
-  const dosageHandler = () => {
-    setDosage(prevState => [
-      ...prevState,
-      { id: prevState.length, meal: 'after', time: 'Morning', amount: '1' },
-    ]);
-  };
-
-  const renderDosages = () => {};
 
   const submitHandler = e => {
     e.preventDefault();
@@ -43,7 +31,7 @@ const AddItem = () => {
 
   return (
     <div className='add-form__container'>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className='add-form'>
         <div className='add-form__controls'>
           <div className='add-form__control'>
             <label htmlFor='name'>Name</label>
@@ -65,10 +53,6 @@ const AddItem = () => {
             <input type='text' name='totalPerDay' ref={totalRef} />
           </div>
 
-          <button type='button' onClick={dosageHandler}>
-            Add dosage
-          </button>
-
           <div className='add-form__control'>
             <label htmlFor='type'>Type</label>
             <select name='type' ref={typeRef}>
@@ -79,6 +63,7 @@ const AddItem = () => {
             </select>
           </div>
         </div>
+        <DosageList />
         <div className='add-form__actions'>
           <button type='submit'>Submit</button>
           <button>Cancel</button>
