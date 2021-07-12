@@ -12,9 +12,12 @@ const AddItem = () => {
 
   const nameRef = useRef('');
   const descRef = useRef('');
-  const durationRef = useRef('');
+  const freqRef = useRef('');
   const totalRef = useRef('');
   const typeRef = useRef('');
+  // const startRef = useRef('');
+  // const stopRef = useRef('');
+  const remarksRef = useRef('');
 
   const [dosage, setDosage] = useState([]);
 
@@ -46,10 +49,13 @@ const AddItem = () => {
       id: Date.now(),
       name: nameRef.current.value,
       use: descRef.current.value,
-      duration: durationRef.current.value,
+      frequency: freqRef.current.value,
       totalPerDay: totalRef.current.value,
       form: typeRef.current.value,
       dosages: dosage,
+      // start: startRef.current.value,
+      // stop: stopRef.current.value,
+      remarks: remarksRef.current.value,
     };
 
     console.log('submitted form');
@@ -72,8 +78,8 @@ const AddItem = () => {
           </div>
 
           <div className='add-form__control'>
-            <label htmlFor='duration'>Duration</label>
-            <input type='text' name='duration' ref={durationRef} />
+            <label htmlFor='type'>Frequency</label>
+            <input type='text' name='desc' ref={freqRef} />
           </div>
 
           <div className='add-form__control'>
@@ -89,6 +95,21 @@ const AddItem = () => {
               <option value='packet'>Packet</option>
               <option value='topical'>Topical</option>
             </select>
+          </div>
+
+          {/* <div className='add-form__control'>
+            <label htmlFor='start'>Start date</label>
+            <input type='date' name='start' ref={startRef} />
+          </div>
+
+          <div className='add-form__control'>
+            <label htmlFor='stop'>Stop date</label>
+            <input type='date' name='stop' ref={stopRef} />
+          </div> */}
+
+          <div className='add-form__control'>
+            <label htmlFor='remarks'>Additional Notes</label>
+            <input type='text' name='remarks' ref={remarksRef} />
           </div>
         </div>
 

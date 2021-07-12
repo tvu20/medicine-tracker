@@ -1,23 +1,28 @@
-// FOR THE MORNING DOSAGES
+import { useState, useEffect, useCallback } from 'react';
 
-import { useSelector } from 'react-redux';
+import './med-display.css';
 
-const DisplayTimeList = () => {
-  const items = useSelector(state => state.prescription.items);
+const DisplayTimeList = props => {
+  const { medList, time } = props;
 
-  //   const findTimeOfDay = item => {
-  //     const dosageList = item.dosages;
-  //     let timesList = [];
+  const [beforeItems, setBefore] = useState([]);
+  const [afterItems, setAfter] = useState([]);
 
-  //     for (const element of dosageList) {
-  //       timesList.push(element.time);
-  //     }
+  const sortItems = useCallback(() => {
+    console.log('sorting');
 
-  //     return timesList;
-  //   };
+    for (const element of medList) {
+      // if (element.dosages.)
+      console.log(element);
+    }
+
+    // const before = medList.filter()
+  }, [medList]);
+
+  useEffect(sortItems);
 
   const renderItems = () => {
-    return items.map(med => {
+    return medList.map(med => {
       //   console.log(findTimeOfDay(med));
       return (
         <div key={med.id}>
@@ -28,7 +33,9 @@ const DisplayTimeList = () => {
       );
     });
   };
-  return <div>{renderItems()}</div>;
+  return (
+    <div className={`med-display__container ${time}`}>{renderItems()}</div>
+  );
 };
 
 export default DisplayTimeList;

@@ -1,0 +1,15 @@
+.med-display__container {
+  background-color: red;
+}
+
+.med-display__container.morning {
+  background-color: #ffdd9a;
+}
+
+.med-display__container.noon {
+  background-color: #bb5555;
+}
+
+.med-display__container.evening {
+  background-color: #2e4d79;
+}

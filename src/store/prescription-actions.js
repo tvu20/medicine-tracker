@@ -18,9 +18,21 @@ export const fetchPrescription = () => {
 
     try {
       const prescription = await fetchData();
+
+      if (prescription === null) {
+        console.log('prescription empty');
+        dispatch(
+          prescriptionActions.replacePrescription({
+            items: [],
+            totalQuantity: 0,
+          })
+        );
+        return;
+      }
+
       dispatch(
         prescriptionActions.replacePrescription({
-          items: prescription.items || [],
+          items: prescription.items,
           totalQuantity: prescription.totalQuantity,
         })
       );

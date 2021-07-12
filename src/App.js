@@ -36,7 +36,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Medicine Tracker</h1>
-      <AddForm />
+      {/* <AddForm /> */}
       <DisplayMeds />
     </div>
   );

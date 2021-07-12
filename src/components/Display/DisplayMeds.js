@@ -1,9 +1,13 @@
+import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import DisplayTimeList from './DisplayTimeList';
 
 const DisplayMeds = () => {
   const items = useSelector(state => state.prescription.items);
+  const [morningItems, setMorningItems] = useState([]);
+  const [noonItems, setNoonItems] = useState([]);
+  const [eveningItems, setEveningItems] = useState([]);
 
   const findTimeOfDay = item => {
     const dosageList = item.dosages;
@@ -16,34 +20,59 @@ const DisplayMeds = () => {
     return timesList;
   };
 
-  // const renderItems = () => {
-  //   return items.map(med => {
-  //     console.log(findTimeOfDay(med));
-  //     return (
-  //       <div key={med.id}>
-  //         <h3>{med.name}</h3>
-  //         <p>{med.use}</p>
-  //         <p>Per day: {med.totalPerDay}</p>
-  //       </div>
-  //     );
-  //   });
-  // };
+  const filterItemsByTimes = useCallback(() => {
+    let morning = [];
+    let noon = [];
+    let evening = [];
 
-  // const renderItems = () => {
-  //   return items.map(med => {
-  //     return (
-  //       <div key={med.id}>
-  //         <h3>{med.name}</h3>
-  //         <p>{med.use}</p>
-  //         <p>Per day: {med.totalPerDay}</p>
-  //       </div>
-  //     );
-  //   });
-  // };
+    let tempElement;
+
+    for (const element of items) {
+      const elementTimes = findTimeOfDay(element);
+
+      if (elementTimes.includes('morning')) {
+        tempElement = {
+          ...element,
+          dosages: element.dosages.filter(e => e.time === 'morning'),
+        };
+
+        morning.push(tempElement);
+      }
+
+      if (elementTimes.includes('noon')) {
+        tempElement = {
+          ...element,
+          dosages: element.dosages.filter(e => e.time === 'noon'),
+        };
+
+        noon.push(tempElement);
+      }
+
+      if (elementTimes.includes('evening')) {
+        tempElement = {
+          ...element,
+          dosages: element.dosages.filter(e => e.time === 'evening'),
+        };
+
+        evening.push(tempElement);
+      }
+    }
+
+    setMorningItems(morning);
+    setNoonItems(noon);
+    setEveningItems(evening);
+    // console.log(morningItems);
+  }, [items]);
+
+  useEffect(() => {
+    filterItemsByTimes();
+  }, [filterItemsByTimes]);
 
   return (
     <div>
-      <DisplayTimeList />
+      <DisplayTimeList medList={morningItems} time='morning' />
+      {/* <DisplayTimeList medList={noonItems} time='noon' />
+      <DisplayTimeList medList={eveningItems} time='evening' /> */}
     </div>
   );
 };
