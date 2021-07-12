@@ -8,28 +8,28 @@ const DosageItem = props => {
   const [timer, setTimer] = useState(null);
 
   const changeHandler = () => {
-    if (timer) {
-      clearTimeout(timer);
-      setTimer(null);
-    }
-    setTimer(
-      setTimeout(() => {
-        // console.log('changed!');
-        props.updateHandler({
-          id: props.item.id,
-          time: timeRef.current.value,
-          meal: mealRef.current.value,
-          amount: amountRef.current.value,
-        });
-      }, 1000)
-    );
+    // if (timer) {
+    //   clearTimeout(timer);
+    //   setTimer(null);
+    // }
+    // setTimer(
+    //   setTimeout(() => {
+    //     // console.log('changed!');
+    //     props.updateHandler({
+    //       id: props.item.id,
+    //       time: timeRef.current.value,
+    //       meal: mealRef.current.value,
+    //       amount: amountRef.current.value,
+    //     });
+    //   }, 1000)
+    // );
     // console.log('changed something');
-    // props.updateHandler({
-    //   id: props.item.id,
-    //   time: timeRef.current.value,
-    //   meal: mealRef.current.value,
-    //   amount: amountRef.current.value,
-    // });
+    props.updateHandler({
+      id: props.item.id,
+      time: timeRef.current.value,
+      meal: mealRef.current.value,
+      amount: amountRef.current.value,
+    });
   };
 
   const removeHandler = () => {

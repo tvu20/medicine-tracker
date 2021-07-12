@@ -9,7 +9,7 @@ import {
   fetchPrescription,
 } from './store/prescription-actions';
 
-// import './App.css';
+import './App.css';
 
 let isInit = true;
 
@@ -18,7 +18,7 @@ function App() {
   const prescription = useSelector(state => state.prescription);
 
   useEffect(() => {
-    console.log('hi there!');
+    console.log('fetching from database');
     dispatch(fetchPrescription());
   }, [dispatch]);
 
@@ -37,7 +37,7 @@ function App() {
     <div className='App'>
       <h1>Medicine Tracker</h1>
       <AddForm />
-      {/* <DisplayMeds /> */}
+      <DisplayMeds />
     </div>
   );
 }

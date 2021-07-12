@@ -5,7 +5,10 @@ import './dosage.css';
 const Dosage = props => {
   const { dosage } = props;
 
+  // console.log('new dosage: ', dosage);
+
   const renderDosages = () => {
+    // console.log('rendering: ', dosage);
     return dosage.map(d => {
       return (
         <DosageItem
