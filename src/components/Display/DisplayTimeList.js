@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
+import MedItem from './MedItem';
+
 import './med-display.css';
 
 const DisplayTimeList = props => {
@@ -37,11 +39,14 @@ const DisplayTimeList = props => {
     return beforeItems.map(med => {
       //   console.log(findTimeOfDay(med));
       return (
-        <div key={med.id}>
-          <h3>{med.name}</h3>
-          <p>{med.use}</p>
-          <p>Per day: {med.totalPerDay}</p>
-        </div>
+        <MedItem
+          key={med.id}
+          id={med.id}
+          name={med.name}
+          frequency={med.frequency}
+          amount={med.amount}
+          time={time}
+        />
       );
     });
   };
@@ -50,21 +55,31 @@ const DisplayTimeList = props => {
     return afterItems.map(med => {
       //   console.log(findTimeOfDay(med));
       return (
-        <div key={med.id}>
-          <h3>{med.name}</h3>
-          <p>{med.use}</p>
-          <p>Per day: {med.totalPerDay}</p>
-        </div>
+        <MedItem
+          key={med.id}
+          id={med.id}
+          name={med.name}
+          frequency={med.frequency}
+          amount={med.amount}
+          time={time}
+        />
       );
     });
   };
 
   return (
     <div className={`med-display__container ${time}`}>
-      <h1>Before items</h1>
-      {renderBeforeItems()}
-      <h1>After items</h1>
-      {renderAfterItems()}
+      <h2>Morning</h2>
+      <span className='med-display__columns'>
+        <section className='med-display__col left'>
+          <h3>Before eating</h3>
+          {renderBeforeItems()}
+        </section>
+        <section className='med-display__col'>
+          <h3>After eating</h3>
+          {renderAfterItems()}
+        </section>
+      </span>
     </div>
   );
 };

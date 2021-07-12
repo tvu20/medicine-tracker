@@ -1,5 +1,10 @@
 .med-display__container {
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 40px;
+  border-radius: 15px;
+  padding: 30px 0px;
 }
 
 .med-display__container.morning {
@@ -12,4 +17,32 @@
 
 .med-display__container.evening {
   background-color: #2e4d79;
+}
+
+.med-display__container h2 {
+  font-size: 40px;
+  margin: 0px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.med-display__columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.med-display__col {
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  padding: 0px 15px 15px;
+}
+
+.med-display__col.left {
+  border-right: 1px solid black;
+}
+
+.med-display__col h3 {
+  margin-top: 0px;
+  font-size: 24px;
+  font-weight: 500;
 }

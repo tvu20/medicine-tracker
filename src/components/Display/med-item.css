@@ -1,0 +1,29 @@
+.med-item__container {
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.med-item__container:hover {
+  box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.438);
+}
+
+.med-item__container.morning {
+  background-color: #fdd17c;
+}
+
+.med-item__container.morning:hover {
+  background-color: #fff1d7;
+}
+
+.med-item__title {
+  font-size: 20px;
+  margin: 0px 0px 5px;
+  font-weight: 500;
+}
+
+.med-item__container p {
+  font-size: 16px;
+  margin: 0px;
+}
