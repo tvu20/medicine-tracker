@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import AddForm from './components/AddItem/AddForm';
 import AddModal from './components/AddItem/AddModal';
 import DisplayMeds from './components/Display/DisplayMeds';
 
@@ -9,6 +8,8 @@ import {
   sendPrescription,
   fetchPrescription,
 } from './store/prescription-actions';
+
+import { uiActions } from './store/ui';
 
 import './App.css';
 
@@ -34,10 +35,16 @@ function App() {
     }
   }, [prescription, dispatch]);
 
+  const openModalHandler = () => {
+    dispatch(uiActions.openModal());
+  };
+
   return (
     <div className='App'>
       <h1 className='app-title'>MedTracker</h1>
-      {/* <AddForm /> */}
+      <button className='btn add-form__btn' onClick={openModalHandler}>
+        Add new
+      </button>
       <AddModal />
       <DisplayMeds />
     </div>

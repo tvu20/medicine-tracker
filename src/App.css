@@ -10,7 +10,7 @@ h1.app-title {
   font-size: 50px;
   font-weight: 400;
   margin: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .App-logo {
@@ -46,4 +46,20 @@ h1.app-title {
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn.add-form__btn {
+  background-color: #fdebd8;
+  margin-bottom: 30px;
+  width: 300px;
+  font-size: 18px;
+  padding-top: 15px;
 }

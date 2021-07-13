@@ -122,7 +122,9 @@ const AddItem = props => {
 
         <div className='add-form__actions'>
           <button type='submit'>Submit</button>
-          <button onClick={props.closeHandler}>Cancel</button>
+          <button onClick={props.closeHandler} type='button'>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

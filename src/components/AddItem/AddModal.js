@@ -1,21 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AddForm from './AddForm';
-
 import Modal from '../UI/Modal';
 
-const AddModal = () => {
-  const [show, setShow] = useState(true);
-  //   const dispatch = useDispatch();
+import { uiActions } from '../../store/ui.js';
+// import prescriptionActions from '../../store/prescription';
 
-  //   const showModal = useSelector(state => state.selected.show);
-  //   const info = useSelector(state => state.selected);
+const AddModal = () => {
+  const dispatch = useDispatch();
+
+  const showModal = useSelector(state => state.ui.toggle);
 
   const closeModalHandler = () => {
-    setShow(false);
-    // dispatch(selectedActions.toggle());
+    dispatch(uiActions.closeModal());
   };
 
   //   const capitalize = text => {
@@ -32,7 +30,7 @@ const AddModal = () => {
 
   return (
     <React.Fragment>
-      {show && (
+      {showModal && (
         <Modal onClose={closeModalHandler}>
           {/* {modalContent()} */}
           <AddForm closeHandler={closeModalHandler} />
