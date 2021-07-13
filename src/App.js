@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import AddForm from './components/AddItem/AddForm';
+import AddModal from './components/AddItem/AddModal';
 import DisplayMeds from './components/Display/DisplayMeds';
 
 import {
@@ -37,6 +38,7 @@ function App() {
     <div className='App'>
       <h1 className='app-title'>MedTracker</h1>
       {/* <AddForm /> */}
+      <AddModal />
       <DisplayMeds />
     </div>
   );

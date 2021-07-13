@@ -7,7 +7,7 @@ import { prescriptionActions } from '../../store/prescription';
 
 import './add-form.css';
 
-const AddItem = () => {
+const AddItem = props => {
   const dispatch = useDispatch();
 
   const nameRef = useRef('');
@@ -122,7 +122,7 @@ const AddItem = () => {
 
         <div className='add-form__actions'>
           <button type='submit'>Submit</button>
-          <button>Cancel</button>
+          <button onClick={props.closeHandler}>Cancel</button>
         </div>
       </form>
     </div>
