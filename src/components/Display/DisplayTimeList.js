@@ -10,6 +10,10 @@ const DisplayTimeList = props => {
   const [beforeItems, setBefore] = useState([]);
   const [afterItems, setAfter] = useState([]);
 
+  const capitalize = string => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const sortItems = useCallback(() => {
     let before = [];
     let after = [];
@@ -69,7 +73,7 @@ const DisplayTimeList = props => {
 
   return (
     <div className={`med-display__container ${time}`}>
-      <h2>Morning</h2>
+      <h2>{capitalize(props.time)}</h2>
       <span className='med-display__columns'>
         <section className='med-display__col left'>
           <h3>Before eating</h3>

@@ -44,6 +44,7 @@ const DosageItem = props => {
           <option value='morning'>Morning</option>
           <option value='noon'>Noon</option>
           <option value='evening'>Evening</option>
+          <option value='night'>Night</option>
         </select>
       </div>
 

@@ -2,12 +2,16 @@ import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import DisplayTimeList from './DisplayTimeList';
+import DisplayTimeNight from './DisplayTimeNight';
 
 const DisplayMeds = () => {
   const items = useSelector(state => state.prescription.items);
   const [morningItems, setMorningItems] = useState([]);
   const [noonItems, setNoonItems] = useState([]);
   const [eveningItems, setEveningItems] = useState([]);
+  const [nightItems, setNightItems] = useState([]);
+  // need to add nighttime items
+  // const [eveningItems, setEveningItems] = useState([]);
 
   const findTimeOfDay = item => {
     const dosageList = item.dosages;
@@ -24,6 +28,7 @@ const DisplayMeds = () => {
     let morning = [];
     let noon = [];
     let evening = [];
+    let night = [];
 
     let tempElement;
 
@@ -56,11 +61,21 @@ const DisplayMeds = () => {
 
         evening.push(tempElement);
       }
+
+      if (elementTimes.includes('night')) {
+        tempElement = {
+          ...element,
+          dosages: element.dosages.filter(e => e.time === 'night'),
+        };
+
+        night.push(tempElement);
+      }
     }
 
     setMorningItems(morning);
     setNoonItems(noon);
     setEveningItems(evening);
+    setNightItems(night);
     // console.log(morningItems);
   }, [items]);
 
@@ -71,8 +86,9 @@ const DisplayMeds = () => {
   return (
     <div>
       <DisplayTimeList medList={morningItems} time='morning' />
-      {/* <DisplayTimeList medList={noonItems} time='noon' />
-      <DisplayTimeList medList={eveningItems} time='evening' /> */}
+      <DisplayTimeList medList={noonItems} time='noon' />
+      <DisplayTimeList medList={eveningItems} time='evening' />
+      <DisplayTimeNight medList={nightItems} time='night' />
     </div>
   );
 };

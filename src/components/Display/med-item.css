@@ -1,20 +1,12 @@
 .med-item__container {
   border-radius: 10px;
-  padding: 20px 30px;
+  padding: 20px 20px;
   margin-bottom: 20px;
   text-align: left;
 }
 
 .med-item__container:hover {
   box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.438);
-}
-
-.med-item__container.morning {
-  background-color: #fdd17c;
-}
-
-.med-item__container.morning:hover {
-  background-color: #fff1d7;
 }
 
 .med-item__title {
@@ -26,4 +18,36 @@
 .med-item__container p {
   font-size: 16px;
   margin: 0px;
+}
+
+.med-item__container.morning {
+  background-color: rgba(243, 190, 109, 0.62);
+}
+
+.med-item__container.morning:hover {
+  background-color: #ffe8bb;
+}
+
+.med-item__container.noon {
+  background-color: rgba(216, 137, 76, 0.62);
+}
+
+.med-item__container.noon:hover {
+  background-color: #ffc497;
+}
+
+.med-item__container.evening {
+  background-color: rgba(225, 134, 116, 0.62);
+}
+
+.med-item__container.evening:hover {
+  background-color: #e9b8b0;
+}
+
+.med-item__container.night {
+  background-color: #846567;
+}
+
+.med-item__container.night:hover {
+  background-color: #baaaab;
 }

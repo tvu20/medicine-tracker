@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Medicine Tracker</h1>
+      <h1 className='app-title'>MedTracker</h1>
       {/* <AddForm /> */}
       <DisplayMeds />
     </div>

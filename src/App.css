@@ -1,6 +1,16 @@
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #f6d1a1 0%, #de9c8e 50%, #605880 100%);
+  margin: 0px;
+  padding: 70px 0;
+}
+
+h1.app-title {
+  font-size: 50px;
+  font-weight: 400;
+  margin: 0px;
+  margin-bottom: 50px;
 }
 
 .App-logo {
